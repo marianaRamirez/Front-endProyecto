@@ -1,0 +1,41 @@
+<div class="container">
+	<form >
+    <fieldset class="form-group">
+    <legend>Conocer:</legend>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Estado de evaluación
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+        Detalle de evaluación respondida
+      </label>
+    </div>
+  </fieldset>
+	  <label class="mr-sm-2" for="inlineFormCustomSelect">Tipo de evaluación</label>
+	  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+	    <option selected>Escoger...</option>
+	    <option value="1">Formativa</option>
+	    <option value="2">Sumativa</option>
+	  </select>
+    <div class="form-group">
+      <label for="exampleSelect2">Nombre de evaluación</label>
+      <select multiple class="form-control" id="exampleSelect2">
+        <option>Evaluacion 1</option>
+        <option>Evaluacion 2</option>
+        <option>Evaluacion 3</option>
+        <option>Evaluacion 4</option>
+        <option>Evaluacion 5</option>
+      </select>
+    </div>
+      <button type="submit" class="btn btn-primary">Aceptar</button>
+<div class="form-group">
+    <label for="exampleTextarea">Resultado</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Generar PDF</button>
+	</form>
+</div>
