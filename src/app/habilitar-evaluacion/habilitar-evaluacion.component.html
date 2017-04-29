@@ -2,13 +2,15 @@
 	<form>
 	  <div class="form-group">
 		<label for="exampleSelect1">Curso:</label>
-		<select class="form-control" id="exampleSelect1">
-		  <option>1</option>
-		  <option>2</option>
-		  <option>3</option>
-		  <option>4</option>
-		  <option>5</option>
-		</select>
+		<div class="dropdown">
+			<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			{{selectedCurso}}
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso}}</a></li>
+			</ul>
+		</div>
 	  </div>
 	   <div class="form-group">
 	    <label for="exampleSelect2">Estudiantes</label>
@@ -21,16 +23,18 @@
 	    </select>
 	  </div>
 	<button type="submit" class="btn btn-primary">Agregar</button>
-	
+
 		<div class="form-group">
 			<label for="exampleSelect1">Evaluación:</label>
-			<select class="form-control" id="exampleSelect1">
-			  <option>1</option>
-			  <option>2</option>
-			  <option>3</option>
-			  <option>4</option>
-			  <option>5</option>
-			</select>
+			<div class="dropdown">
+				<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				{{selectedEvaluacion}}
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li *ngFor='let eval of evaluaciones' (click)="selectedEvaluacion=eval	"><a>{{eval}}</a></li>
+				</ul>
+			</div>
 		  </div>
 	  <button type="submit" class="btn btn-primary">Enviar correo</button>
 	</form>

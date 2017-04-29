@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./matricular-estudiante.component.css']
 })
 export class MatricularEstudianteComponent implements OnInit {
-
-  constructor() { }
+  cursos:any[];
+  selectedCurso: string;
+  constructor() {
+    this.cursos = ["Curso 1","Curso 2","Curso 3","Curso 4"];
+    this.selectedCurso = "Seleccione el curso";
+  }
 
   ngOnInit() {
   }

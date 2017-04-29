@@ -1,47 +1,37 @@
-	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  <a class="navbar-brand" [routerLink]="['/login']">Inicio</a>
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-	    <ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-		<a class="nav-link disabled" [routerLink]="['/login']">Inicio de Sesión</a>
-	      </li>
-	      <li class="nav-item active">
-		<a class="nav-link" [routerLink]="['/registroUsuario']">Registrar Usuario</a>
-	      </li>
-	      <li class="nav-item">
-		<a class="nav-link" [routerLink]="['/registroEvaluacion']">Registrar Evaluación</a>
-	      </li>
-	      <li class="nav-item">
-		<a class="nav-link disabled" [routerLink]="['/habilitarEvaluacion']">Habilitar Evaluación</a>
-	      </li>
-				<li class="nav-item">
-		<a class="nav-link disabled" [routerLink]="['/registroPregunta']">Registrar Pregunta</a>
-	      </li>
-				<li class="nav-item">
-		<a class="nav-link disabled" [routerLink]="['/registroCurso']">Registrar Curso</a>
-	      </li>
-				<li class="nav-item">
-		<a class="nav-link disabled" [routerLink]="['/registroTema']">Registrar Tema</a>
-	      </li>
-				<li class="nav-item">
-		<a class="nav-link disabled" [routerLink]="['/registroSubtema']">Registrar Subtema</a>
-	      </li>
-				<li class="nav-item">
-		<a class="nav-link disabled" [routerLink]="['/matricularEstudiante']">Matricular Estudiante</a>
-	      </li>
-				<li class="nav-item">
-		<a class="nav-link disabled" [routerLink]="['/conocerEvaluacion']">Conocer Evaluación</a>
-	      </li>
-				<li class="nav-item">
-		<a class="nav-link disabled" [routerLink]="['/asignarProfesor']">Asignar Profesor</a>
-	      </li>
-	    </ul>
-	  </div>
-	</nav>
-	<ng2-datepicker [options]="options" [(ngModel)]="date"></ng2-datepicker>
-
+		</div>
+		<div class="collapse navbar-collapse" id="navbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a class="navbar-brand" [routerLink]="['/login']">Inicio</a></li>
+				<li><a class="nav-link disabled" [routerLink]="['/login']">Inicio de Sesión</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">Registrar<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a class="nav-link" [routerLink]="['/registroUsuario']">Registrar Usuario</a></li>
+						<li><a class="nav-link" [routerLink]="['/registroEvaluacion']">Registrar Evaluación</a></li>
+						<li><a class="nav-link disabled" [routerLink]="['/registroPregunta']">Registrar Pregunta</a></li>
+						<li><a class="nav-link disabled" [routerLink]="['/registroCurso']">Registrar Curso</a></li>
+						<li><a class="nav-link disabled" [routerLink]="['/registroTema']">Registrar Tema</a></li>
+						<li><a class="nav-link disabled" [routerLink]="['/registroSubtema']">Registrar Subtema</a></li>
+					</ul>
+				</li>
+				<li><a class="nav-link disabled" [routerLink]="['/habilitarEvaluacion']">Habilitar Evaluación</a></li>
+				<li><a class="nav-link disabled" [routerLink]="['/matricularEstudiante']">Matricular Estudiante</a></li>
+				<li><a class="nav-link disabled" [routerLink]="['/conocerEvaluacion']">Conocer Evaluación</a></li>
+				<li><a class="nav-link disabled" [routerLink]="['/asignarProfesor']">Asignar Profesor</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div style="padding-top:70px">
 <router-outlet></router-outlet>
+</div>

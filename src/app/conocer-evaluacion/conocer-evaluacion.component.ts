@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conocer-evaluacion.component.css']
 })
 export class ConocerEvaluacionComponent implements OnInit {
+    tipoEvaluacion: any[];
+    selectedTipo: string;
 
-  constructor() { }
+  constructor() {
+    this.tipoEvaluacion = ["Formativa","Sumativa"];
+    this.selectedTipo = "Seleccione el tipo de evaluación";
+  }
 
   ngOnInit() {
   }

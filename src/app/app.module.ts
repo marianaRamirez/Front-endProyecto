@@ -15,7 +15,6 @@ import { RegistroCursoComponent } from './registro-curso/registro-curso.componen
 import { MatricularEstudianteComponent } from './matricular-estudiante/matricular-estudiante.component';
 import { ConocerEvaluacionComponent } from './conocer-evaluacion/conocer-evaluacion.component';
 import { AsignarProfesorComponent } from './asignar-profesor/asignar-profesor.component';
-import { DatePickerModule } from 'ng2-datepicker';
 
 const appRoutes: Routes = [
   { path: 'registroUsuario', component: RegistroUsuarioComponent },
@@ -52,8 +51,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
-    HttpModule,
-    DatePickerModule
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

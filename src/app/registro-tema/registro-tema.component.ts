@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro-tema.component.css']
 })
 export class RegistroTemaComponent implements OnInit {
+  cursos:any[];
+  selectedCurso: string;
 
-  constructor() { }
+  constructor() {
+    this.cursos = ["Curso 1","Curso 2","Curso 3","Curso 4"];
+    this.selectedCurso = "Seleccione el curso";
+  }
 
   ngOnInit() {
   }
