@@ -1,26 +1,42 @@
 <div class="container">
 	<form >
-	  <label class="mr-sm-2" for="inlineFormCustomSelect">Curso</label>
+	  <label class="mr-sm-2" for="inlineFormCustomSelect">Curso:</label>
 		<div class="dropdown">
  		 <button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
- 		 {{selectedCurso}}
+ 		 {{selectedCurso.descripcion}}
  		 <span class="caret"></span>
  		 </button>
  		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
- 			 <li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso}}</a></li>
+ 			 <li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso.descripcion}}</a></li>
  		 </ul>
  	 </div>
-    <div class="form-group">
-    <label for="exampleSelect2">Estudiantes</label>
-    <select multiple class="form-control" id="exampleSelect2">
-      <option>Estudiante 1</option>
-      <option>Estudiante 2</option>
-      <option>Estudiante 3</option>
-      <option>Estudiante 4</option>
-      <option>Estudiante 5</option>
+    <div class="form-group" style = "margin: 100px 0">
+    <label for="exampleSelect2">Estudiantes:</label>
+    <select multiple class="form-control" [(ngModel)]="selectedEstudiantes" [ngModelOptions]="{standalone: true}">
+			<option *ngFor='let estudiante of estudiantes' [ngValue]="estudiante">{{estudiante.carne}} {{estudiante.nombre}} {{estudiante.primerApellido}} {{estudiante.segundoApellido}}</option>
     </select>
+		<div style="margin: 15px 0 0 0">
+			<button [disabled]="cursoSelecionado()" type="button" class="btn btn-primary" (click)="matricularEstudiante()">Matricular</button>
+		</div>
   </div>
-    <button type="submit" class="btn btn-primary">Agregar</button>
-    <button type="submit" class="btn btn-primary">Aceptar</button>
 	</form>
+
+	<div class="table-responsive">
+		<legend>{{selectedCurso.descripcion}}</legend>
+		<table style="margin: 10px" class="table table-hover">
+		  <thead>
+		    <tr>
+		      <th>Carné</th>
+		      <th>Nombre</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr *ngFor="let matricula of estudiantesMatriculados">
+		      <td>{{matricula.estudiante.carne}}</td>
+		      <td>{{matricula.estudiante.nombre}} {{matricula.estudiante.primerApellido}} {{matricula.estudiante.segundoApellido}}</td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div>
+
 </div>

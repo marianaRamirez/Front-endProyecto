@@ -1,15 +1,17 @@
 <div class="container">
 	<form >
-	  <label class="mr-sm-2" for="inlineFormCustomSelect">Curso</label>
+		<div class="form-group">
+		<label for="exampleSelect1">Curso:</label>
 		<div class="dropdown">
 			<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-			{{selectedCurso}}
+			{{selectedCurso.descripcion}}
 			<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso}}</a></li>
+				<li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso.descripcion}}</a></li>
 			</ul>
 		</div>
+	  </div>
 	<div class="form-group row">
 	  <label for="example-id-input" class="col-2 col-form-label">Descripción del tema:</label>
 	  <div class="col-10">

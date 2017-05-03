@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  loginLabel: string;
+
+  constructor(){
+    localStorage.setItem('nombreUsuario',"Iniciar Sesión");
+    this.loginLabel = localStorage.getItem('nombreUsuario');
+
+  }
 }

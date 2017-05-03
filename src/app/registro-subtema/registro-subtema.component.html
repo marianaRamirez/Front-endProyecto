@@ -1,25 +1,29 @@
 <div class="container">
 	<form >
-	  <label class="mr-sm-2" for="inlineFormCustomSelect">Curso</label>
+		<div class="form-group">
+		<label for="exampleSelect1">Curso:</label>
 		<div class="dropdown">
- 		 <button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
- 		 {{selectedCurso}}
- 		 <span class="caret"></span>
- 		 </button>
- 		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
- 			 <li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso}}</a></li>
- 		 </ul>
- 	 </div>
-    <label class="mr-sm-2" for="inlineFormCustomSelect">Tema</label>
-		<div class="dropdown">
- 		 <button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
- 		 {{selectedTema}}
- 		 <span class="caret"></span>
- 		 </button>
- 		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
- 			 <li *ngFor='let tema of temas' (click)="selectedTema=tema	"><a>{{tema}}</a></li>
- 		 </ul>
- 	 </div>
+			<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			{{selectedCurso.descripcion}}
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso.descripcion}}</a></li>
+			</ul>
+		</div>
+	  </div>
+		<div class="form-group">
+			<label for="exampleSelect1">Tema:</label>
+			<div class="dropdown">
+	 		 <button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	 		 {{selectedTema.descripcion}}
+	 		 <span class="caret"></span>
+	 		 </button>
+	 		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	 			 <li *ngFor='let tema of temas' (click)="selectedTema=tema	"><a>{{tema.descripcion}}</a></li>
+	 		 </ul>
+	 	 </div>
+		  </div>
 	<div class="form-group row">
 	  <label for="example-id-input" class="col-2 col-form-label">Descripción del subtema:</label>
 	  <div class="col-10">

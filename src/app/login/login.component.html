@@ -1,14 +1,7 @@
-<form>
-
- <div class="container">
-   <label><b>Usuario</b></label>
-   <input type="text" placeholder=" " name="uname" required>
-
-   <label><b>Contraseña</b></label>
-   <input type="password" placeholder=" " name="psw" required>
-
-   <button type="submit">Login</button>
+<div class="container">
+   <form [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
+     <input formControlName="usuario" type="text" placeholder="Usuario">
+     <input formControlName="clave" type="password" placeholder="Contraseña">
+     <button type="submit">Iniciar sesión</button>
+   </form>
  </div>
-
-
-</form>

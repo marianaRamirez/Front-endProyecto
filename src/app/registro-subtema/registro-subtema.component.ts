@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Curso } from '../interfaces/curso';
+import { Tema } from '../interfaces/tema';
 
 @Component({
   selector: 'app-registro-subtema',
@@ -6,16 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro-subtema.component.css']
 })
 export class RegistroSubtemaComponent implements OnInit {
-  cursos:any[];
-  selectedCurso: string;
-  temas:any[];
-  selectedTema: string;
+  cursos:Curso[];
+  selectedCurso: Curso = {codigo:" ",descripcion:"Seleccione un curso"};
+  temas:Tema[];
+  selectedTema: Tema = {descripcion:"Seleccione un tema",curso:" "};
 
   constructor() {
-    this.cursos = ["Curso 1","Curso 2","Curso 3","Curso 4"];
-    this.selectedCurso = "Seleccione el curso";
-    this.temas = ["Tema 1","Tema 2","Tema 3","Tema 4"];
-    this.selectedTema = "Seleccione el tema";
+    this.cursos = [{codigo:"1234",descripcion:"Curso 1"},{codigo:"01234",descripcion:"Curso 2"},{codigo:"12345",descripcion:"Curso 3"}];
+    this.temas = [{descripcion:"Tema 1",curso:"Curso 1"},{descripcion:"Tema 2",curso:"Curso 1"}];
+
   }
 
   ngOnInit() {

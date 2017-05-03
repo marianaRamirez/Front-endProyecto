@@ -1,42 +1,50 @@
 <div class="container">
-
 	<form>
-	<div class="form-group row">
-	  <label for="example-id-input" class="col-2 col-form-label">Número de identificación:</label>
-	  <div class="col-10">
-	    <input class="form-control" type="id" id="example-id-input">
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <label for="example-carne-input" class="col-2 col-form-label">Número de carné:</label>
-	  <div class="col-10">
-	    <input class="form-control" type="carne" id="example-carne-input">
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <label for="example-nacimiento-input" class="col-2 col-form-label">Fecha de nacimiento:</label>
-	  <div class="col-10">
-	    <input class="form-control" type="nacimiento" id="example-nacimiento-input">
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <label for="example-apellido1-input" class="col-2 col-form-label">Primer Apellido:</label>
-	  <div class="col-10">
-	    <input class="form-control" type="apellido1" id="example-apellido1-input">
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <label for="example-apellido2-input" class="col-2 col-form-label">Segundo Apellido:</label>
-	  <div class="col-10">
-	    <input class="form-control" type="apellido2" id="example-apellido2-input">
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <label for="example-direccion-input" class="col-2 col-form-label">Dirección de correo electrónico:</label>
-	  <div class="col-10">
-	    <input class="form-control" type="direccion" id="example-direccion-input">
-	  </div>
-	</div>
-	<button type="submit" class="btn btn-primary">Aceptar</button>
+		<div class="form-group row"s>
+		  <label for="example-id-input" class="col-2 col-form-label">Número de identificación:</label>
+		  <div class="col-10">
+		    <input class="form-control" type="text" id="identificacion" [(ngModel)]="user.identificacion" name="identificacion" required>
+		  </div>
+		</div>
+		<div class="form-group row">
+		  <label for="example-carne-input" class="col-2 col-form-label">Número de carné:</label>
+		  <div class="col-10">
+		    <input class="form-control" type="text" id="carne" [(ngModel)]="user.carne" name="carne" required>
+		  </div>
+		</div>
+		<div class="form-group row">
+		  <label for="example-nacimiento-input" class="col-2 col-form-label">Fecha de nacimiento:</label>
+		  <div class="col-10">
+				<p-calendar [(ngModel)]="user.fechaNacimiento" [showIcon]="true" [locale]="es" dateFormat="dd/mm/yy" name="fechaNacimiento" id="fechaNacimiento"></p-calendar>
+		  </div>
+		</div>
+		<div class="form-group row">
+			<label for="example-carne-input" class="col-2 col-form-label">Nombre:</label>
+			<div class="col-10">
+				<input class="form-control" type="text" id="nombre" [(ngModel)]="user.nombre" name="nombre" required>
+			</div>
+		</div>
+		<div class="form-group row">
+		  <label for="example-apellido1-input" class="col-2 col-form-label">Primer Apellido:</label>
+		  <div class="col-10">
+				<input class="form-control" type="text" id="apellido1" [(ngModel)]="user.apellido1" name="apellido1" required>
+		  </div>
+		</div>
+		<div class="form-group row">
+		  <label for="example-apellido2-input" class="col-2 col-form-label">Segundo Apellido:</label>
+		  <div class="col-10">
+				<input class="form-control" type="text" id="apellido2" [(ngModel)]="user.apellido2" name="apellido2" required>
+		  </div>
+		</div>
+		<div class="form-group row">
+		  <label for="example-direccion-input" class="col-2 col-form-label">Dirección de correo electrónico:</label>
+		  <div class="col-10">
+				<input class="form-control" type="text" id="direccion" [(ngModel)]="user.direccion" name="direccion" required>
+		  </div>
+		</div>
+		<div class="form-group row">
+			<button class="btn btn-primary" (click)="registrarUsuario()">Registrar</button>
+		</div>
+
 	</form>
 </div>

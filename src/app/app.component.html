@@ -7,29 +7,30 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-
 		</div>
+
 		<div class="collapse navbar-collapse" id="navbar">
 			<ul class="nav navbar-nav">
-				<li class="active"><a class="navbar-brand" [routerLink]="['/login']">Inicio</a></li>
-				<li><a class="nav-link disabled" [routerLink]="['/login']">Inicio de Sesión</a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="false">Registrar<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a class="nav-link" [routerLink]="['/registroUsuario']">Registrar Usuario</a></li>
 						<li><a class="nav-link" [routerLink]="['/registroEvaluacion']">Registrar Evaluación</a></li>
-						<li><a class="nav-link disabled" [routerLink]="['/registroPregunta']">Registrar Pregunta</a></li>
-						<li><a class="nav-link disabled" [routerLink]="['/registroCurso']">Registrar Curso</a></li>
-						<li><a class="nav-link disabled" [routerLink]="['/registroTema']">Registrar Tema</a></li>
-						<li><a class="nav-link disabled" [routerLink]="['/registroSubtema']">Registrar Subtema</a></li>
+						<li><a class="nav-link" [routerLink]="['/registroPregunta']">Registrar Pregunta</a></li>
+						<li><a class="nav-link" [routerLink]="['/registroCurso']">Registrar Curso</a></li>
+						<li><a class="nav-link" [routerLink]="['/registroTema']">Registrar Tema</a></li>
+						<li><a class="nav-link" [routerLink]="['/registroSubtema']">Registrar Subtema</a></li>
 					</ul>
 				</li>
-				<li><a class="nav-link disabled" [routerLink]="['/habilitarEvaluacion']">Habilitar Evaluación</a></li>
-				<li><a class="nav-link disabled" [routerLink]="['/matricularEstudiante']">Matricular Estudiante</a></li>
-				<li><a class="nav-link disabled" [routerLink]="['/conocerEvaluacion']">Conocer Evaluación</a></li>
-				<li><a class="nav-link disabled" [routerLink]="['/asignarProfesor']">Asignar Profesor</a></li>
+				<li><a class="nav-link" [routerLink]="['/habilitarEvaluacion']">Habilitar Evaluación</a></li>
+				<li><a class="nav-link" [routerLink]="['/matricularEstudiante']">Matricular Estudiante</a></li>
+				<li><a class="nav-link" [routerLink]="['/conocerEvaluacion']">Conocer Evaluación</a></li>
+				<li><a class="nav-link" [routerLink]="['/asignarProfesor']">Asignar Profesor</a></li>
 			</ul>
-		</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="navbar-link" [routerLink]="['/login']">{{loginLabel}}</a></li>
+			</ul>
+			</div>
 	</div>
 </nav>
 <div style="padding-top:70px">

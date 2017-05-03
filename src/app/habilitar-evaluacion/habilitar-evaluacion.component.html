@@ -4,35 +4,32 @@
 		<label for="exampleSelect1">Curso:</label>
 		<div class="dropdown">
 			<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-			{{selectedCurso}}
+			{{selectedCurso.descripcion}}
 			<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso}}</a></li>
+				<li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso.descripcion}}</a></li>
 			</ul>
 		</div>
 	  </div>
-	   <div class="form-group">
-	    <label for="exampleSelect2">Estudiantes</label>
-	    <select multiple class="form-control" id="exampleSelect2">
-	      <option>Estudiante 1</option>
-	      <option>Estudiante 2</option>
-	      <option>Estudiante 3</option>
-	      <option>Estudiante 4</option>
-	      <option>Estudiante 5</option>
-	    </select>
-	  </div>
-	<button type="submit" class="btn btn-primary">Agregar</button>
-
+		<div class="form-group" style = "margin: 100px 0">
+		<label for="exampleSelect2">Estudiantes:</label>
+		<select multiple class="form-control" [(ngModel)]="selectedEstudiantes" [ngModelOptions]="{standalone: true}">
+		 <option *ngFor='let estudiante of estudiantes' [ngValue]="estudiante">{{estudiante.carne}} {{estudiante.nombre}} {{estudiante.primerApellido}} {{estudiante.segundoApellido}}</option>
+		</select>
+	 <div style="margin: 15px 0 0 0">
+		 <button type="button" class="btn btn-primary" (click)="agregarEstudiantes()">Agregar</button>
+	 </div>
+	</div>
 		<div class="form-group">
 			<label for="exampleSelect1">Evaluación:</label>
 			<div class="dropdown">
 				<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				{{selectedEvaluacion}}
+				{{selectedEvaluacion.nombre}}
 				<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					<li *ngFor='let eval of evaluaciones' (click)="selectedEvaluacion=eval	"><a>{{eval}}</a></li>
+					<li *ngFor='let eval of evaluaciones' (click)="selectedEvaluacion=eval	"><a>{{eval.nombre}}</a></li>
 				</ul>
 			</div>
 		  </div>

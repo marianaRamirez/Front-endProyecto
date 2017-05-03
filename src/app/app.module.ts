@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { AccordionModule } from 'primeng/primeng';
+import { CalendarModule } from 'primeng/primeng';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { RegistroEvaluacionComponent } from './registro-evaluacion/registro-evaluacion.component';
 import { RegistroPreguntaComponent } from './registro-pregunta/registro-pregunta.component';
@@ -15,6 +18,8 @@ import { RegistroCursoComponent } from './registro-curso/registro-curso.componen
 import { MatricularEstudianteComponent } from './matricular-estudiante/matricular-estudiante.component';
 import { ConocerEvaluacionComponent } from './conocer-evaluacion/conocer-evaluacion.component';
 import { AsignarProfesorComponent } from './asignar-profesor/asignar-profesor.component';
+import { HomeComponent } from './home/home.component';
+
 
 const appRoutes: Routes = [
   { path: 'registroUsuario', component: RegistroUsuarioComponent },
@@ -28,6 +33,7 @@ const appRoutes: Routes = [
   { path: 'matricularEstudiante', component: MatricularEstudianteComponent },
   { path: 'conocerEvaluacion', component: ConocerEvaluacionComponent },
   { path: 'asignarProfesor', component: AsignarProfesorComponent },
+  { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full'}
 
 ];
@@ -45,13 +51,17 @@ const appRoutes: Routes = [
     RegistroCursoComponent,
     MatricularEstudianteComponent,
     ConocerEvaluacionComponent,
-    AsignarProfesorComponent
+    AsignarProfesorComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    CalendarModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

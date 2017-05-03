@@ -1,138 +1,180 @@
 <div class="container">
-	<form >
-	  <label class="mr-sm-2" for="inlineFormCustomSelect">Curso</label>
-
-		<div class="dropdown">
-			<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-			{{selectedCurso}}
-			<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso}}</a></li>
-			</ul>
+	<form>
+		<div class="form-group row">
+		  <label class="mr-sm-2" for="inlineFormCustomSelect">Curso</label>
+			<div class="dropdown">
+				 <button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				 {{selectedCurso.descripcion}}
+				 <span class="caret"></span>
+				 </button>
+				 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					 <li *ngFor='let curso of cursos' (click)="selectedCurso=curso"><a>{{curso.descripcion}}</a></li>
+				 </ul>
+			</div>
+		</div>
+		<div class="form-group row">
+		  <label for="example-id-input" class="col-2 col-form-label">Nombre de evaluación:</label>
+		  <div class="col-10">
+		    <input class="form-control" [(ngModel)]="evaluacion.nombre" type="text" name="nombre" id="example-id-input">
+		  </div>
+		</div>
+		<div class="form-group row">
+		  <label for="example-carne-input" class="col-2 col-form-label">Puntaje total:</label>
+		  <div class="col-10">
+		    <input class="form-control" [(ngModel)]="evaluacion.puntaje" type="text" name="puntaje" id="example-carne-input">
+		  </div>
+		</div>
+		<div class="form-group row">
+		  <label for="example-nacimiento-input" class="col-2 col-form-label">Porcentaje de la nota final del curso:</label>
+		  <div class="col-10">
+		    <input class="form-control" [(ngModel)]="evaluacion.porcentaje" type="text" name="porcentaje" id="example-nacimiento-input">
+		  </div>
+		</div>
+		<div class="form-group row">
+			<label for="date" class="col-2 col-form-label">Fecha de aplicación</label>
+			<div class="col-10">
+				<p-calendar [(ngModel)]="date" [showTime]="true" [showIcon]="true" [locale]="es" dateFormat="dd/mm/yy" name="date" id="date"></p-calendar>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="mr-sm-2" for="inlineFormCustomSelect">Tipo de evaluación:</label>
+			<div class="dropdown">
+				<button ngChange class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				{{selectedTipo}}
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					<li *ngFor='let tipo of tipoEvaluacion' (click)="selectedTipo=tipo"><a>{{tipo}}</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="form-group row">
+		  <label for="example-apellido2-input" class="col-2 col-form-label">Tiempo en minutos máximo disponible para completar la evaluación: </label>
+		  <div class="col-10">
+		    <input class="form-control" [(ngModel)]="evaluacion.tiempo" type="text" name="tiempo" id="example-apellido2-input">
+		  </div>
 		</div>
 
-	<div class="form-group row">
-	  <label for="example-id-input" class="col-2 col-form-label">Nombre de evaluación:</label>
-	  <div class="col-10">
-	    <input class="form-control" type="id" id="example-id-input">
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <label for="example-carne-input" class="col-2 col-form-label">Puntaje total:</label>
-	  <div class="col-10">
-	    <input class="form-control" type="carne" id="example-carne-input">
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <label for="example-nacimiento-input" class="col-2 col-form-label">Porcentaje de la nota final del curso:</label>
-	  <div class="col-10">
-	    <input class="form-control" type="nacimiento" id="example-nacimiento-input">
-	  </div>
-	</div>
-	<label class="mr-sm-2" for="inlineFormCustomSelect">Tipo de evaluación:</label>
-	<div class="dropdown">
-		<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		{{selectedTipo}}
-		<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-			<li *ngFor='let tipo of tipoEvaluacion' (click)="selectedTipo=tipo"><a>{{tipo}}</a></li>
-		</ul>
-	</div>
-	<div class="form-group row">
-	  <label for="example-apellido2-input" class="col-2 col-form-label">Tiempo en minutos máximo disponible para completar la evaluación: </label>
-	  <div class="col-10">
-	    <input class="form-control" type="apellido2" id="example-apellido2-input">
-	  </div>
-	</div>
-	<div class="form-check">
-    <label for="example-apellido2-input" class="col-2 col-form-label">Tipo de pregunta </label>
-    <label class="form-check-label">
-      <input type="checkbox" class="form-check-input">
-      Marque con equis (Selección única)
-	</label>
-  </div>
+		<div class="form-group row">
+			<div class="form-check">
+		    <label for="example-apellido2-input" class="col-2 col-form-label">Tipo de pregunta </label>
+				<div class="checkbox">
+					<label class="form-check-label">
+						<input [(ngModel)]="marqueX" type="checkbox" class="form-check-input" name="marqueX">Marque con equis (Selección única)
+					</label>
+				</div>
+			</div>
+		</div>
+		  <div class="form-group row">
+		  <label for="example-apellido2-input" class="col-2 col-form-label">Puntaje</label>
+		  <div class="col-10">
+		    <input [(ngModel)]="marqueXPuntaje" class="form-control" type="apellido2" id="example-apellido2-input" name="marqueXPuntaje">
+		  </div>
+		</div>
+		<div class="form-group row">
+			<label for="exampleSelect2">Preguntas:</label>
+			<select multiple class="form-control" [(ngModel)]="selectedPreguntasMarqueX" [ngModelOptions]="{standalone: true}">
+			 <option *ngFor='let preg of preguntasSeleccion' [ngValue]="preg">{{preg.descripcion}} {{preg.tema}} {{preg.subtema}}</option>
+			</select>
+		 <div style="margin: 15px 0 0 0">
+			 <button type="button" class="btn btn-primary" (click)="agregarPreguntaMarqueX()">Agregar</button>
+		 </div>
+		</div>
+
+		<div class="form-group row">
+		  <div class="form-check">
+				<label for="example-apellido2-input" class="col-2 col-form-label">Tipo de pregunta </label>
+				<div class="checkbox">
+		      <label class="form-check-label">
+				  	<input [(ngModel)]="complete" type="checkbox" class="form-check-input" name="complete">Complete
+					</label>
+				</div>
+			</div>
+		</div>
 	  <div class="form-group row">
-	  <label for="example-apellido2-input" class="col-2 col-form-label">Puntaje</label>
-	  <div class="col-10">
-	    <input class="form-control" type="apellido2" id="example-apellido2-input">
-	  </div>
-	</div>
-	<div class="form-group">
-    <label for="exampleSelect2">Preguntas</label>
-    <select multiple class="form-control" id="exampleSelect2">
-      <option>Pregunta 1</option>
-      <option>Pregunta 2</option>
-      <option>Pregunta 3</option>
-      <option>Pregunta 4</option>
-      <option>Pregunta 5</option>
-    </select>
-  </div>
-	  <button type="submit" class="btn btn-primary">Agregar</button>
-	  <div class="form-check">
-      <label class="form-check-label">
-	  <input type="checkbox" class="form-check-input">
-      Complete
-	</label>
-  </div>
-	  <div class="form-group row">
-	  <label for="example-apellido2-input" class="col-2 col-form-label">Puntaje</label>
-	  <div class="col-10">
-	    <input class="form-control" type="apellido2" id="example-apellido2-input">
-	  </div>
-	</div>
-    <div class="form-group">
-    <label for="exampleSelect2">Preguntas</label>
-    <select multiple class="form-control" id="exampleSelect2">
-      <option>Pregunta 1</option>
-      <option>Pregunta 2</option>
-      <option>Pregunta 3</option>
-      <option>Pregunta 4</option>
-      <option>Pregunta 5</option>
-    </select>
-  </div>
-	<div>
-	  <button type="submit" class="btn btn-primary">Agregar</button>
-	</div>
-	  <div class="form-check">
-      <label class="form-check-label">
-	  <input type="checkbox" class="form-check-input">
-      Desarrollo
-    </label>
+		  <label for="example-apellido2-input" class="col-2 col-form-label">Puntaje</label>
+		  <div class="col-10">
+		    <input [(ngModel)]="completePuntaje" class="form-control" type="apellido2" id="example-apellido2-input" name="completePuntaje">
+		  </div>
+		</div>
+		<div class="form-group row">
+			<label for="exampleSelect2">Preguntas:</label>
+			<select multiple class="form-control" [(ngModel)]="selectedPreguntasComplete" [ngModelOptions]="{standalone: true}">
+				<option *ngFor='let preg of preguntasComplete' [ngValue]="preg">{{preg.descripcion}} {{preg.tema}} {{preg.subtema}}</option>
+			</select>
+			<div style="margin: 15px 0 0 0">
+			 <button type="button" class="btn btn-primary" (click)="agregarPreguntaComplete()">Agregar</button>
+		 </div>
+	 </div>
+
+	 <div class="form-group row">
+		 <div class="form-check">
+			 <label for="example-apellido2-input" class="col-2 col-form-label">Tipo de pregunta </label>
+			 <div class="checkbox">
+				 <label class="form-check-label">
+					 <input [(ngModel)]="desarrollo" type="checkbox" class="form-check-input" name="desarrollo">Desarrollo
+				 </label>
+			 </div>
+		 </div>
   </div>
 	<div class="form-group row">
 	  <label for="example-apellido2-input" class="col-2 col-form-label">Puntaje</label>
 	  <div class="col-10">
-	    <input class="form-control" type="apellido2" id="example-apellido2-input">
+	    <input [(ngModel)]="desarrolloPuntaje" class="form-control" type="apellido2" id="example-apellido2-input" name="desarrolloPuntaje">
 	  </div>
 	</div>
-    <div class="form-group">
-    <label for="exampleSelect2">Preguntas</label>
-    <select multiple class="form-control" id="exampleSelect2">
-      <option>Pregunta 1</option>
-      <option>Pregunta 2</option>
-      <option>Pregunta 3</option>
-      <option>Pregunta 4</option>
-      <option>Pregunta 5</option>
-    </select>
-  </div>
-	<div>
- 	  <button type="submit" class="btn btn-primary">Agregar</button>
+	<div class="form-group row">
+		<label for="exampleSelect2">Preguntas:</label>
+		<select multiple class="form-control" [(ngModel)]="selectedPreguntasDesarrollo" [ngModelOptions]="{standalone: true}">
+			<option *ngFor='let preg of preguntasDesarrollo' [ngValue]="preg">{{preg.descripcion}} {{preg.tema}} {{preg.subtema}}</option>
+		</select>
+		<div style="margin: 15px 0 0 0">
+			<button type="button" class="btn btn-primary" (click)="agregarPreguntaDesarrollo()">Agregar</button>
+		</div>
 	</div>
-	<label class="mr-sm-2" for="inlineFormCustomSelect">Opción de presentación de preguntas:</label>
-	<div class="dropdown">
-		<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		{{selectedPresentacion}}
-		<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-			<li *ngFor='let present of opcionPresentacion' (click)="selectedPresentacion=present"><a>{{present}}</a></li>
-		</ul>
+
+	<div class="form-group row">
+		<label class="mr-sm-2" for="inlineFormCustomSelect">Opción de presentación de preguntas:</label>
+		<div class="dropdown">
+			<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				{{selectedPresentacion}}
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li *ngFor='let present of opcionPresentacion' (click)="selectedPresentacion=present"><a>{{present}}</a></li>
+			</ul>
+		</div>
 	</div>
-	<div>
-<button type="submit" class="btn btn-primary">Generar PDF</button>
-<button type="submit" class="btn btn-primary">Aceptar</button>
-</div>
+	<div class="form-group row" [hidden]="selectedPreguntas.length==0">
+		<div class="table-responsive">
+			<legend>{{selectedPreguntas.descripcion}}</legend>
+				<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th>Pregunta</th>
+			      <th>Tipo</th>
+						<th>Tema</th>
+						<th>Subtema</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr *ngFor="let preguntasExamen of selectedPreguntas">
+			      <td>{{preguntasExamen.descripcion}}</td>
+			      <td>{{preguntasExamen.tipo == 1 ? "Selección Única" : preguntasExamen.tipo == 2 ? "Complete" : "Desarrollo"}}</td>
+						<td>{{preguntasExamen.tema}}</td>
+						<td>{{preguntasExamen.subtema}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<div class="button-group">
+			<button class="btn btn-success">Generar PDF</button>
+			<button class="btn btn-primary">Aceptar</button>
+		</div>
+
+	</div>
 	</form>
 </div>

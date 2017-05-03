@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Curso } from '../interfaces/curso';
 
 @Component({
   selector: 'app-registro-tema',
@@ -6,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro-tema.component.css']
 })
 export class RegistroTemaComponent implements OnInit {
-  cursos:any[];
-  selectedCurso: string;
+  cursos:Curso[];
+  selectedCurso: Curso = {codigo:" ",descripcion:"Seleccione un curso"};
 
   constructor() {
-    this.cursos = ["Curso 1","Curso 2","Curso 3","Curso 4"];
-    this.selectedCurso = "Seleccione el curso";
+    this.cursos = [{codigo:"1234",descripcion:"Curso 1"},{codigo:"01234",descripcion:"Curso 2"},{codigo:"12345",descripcion:"Curso 3"}];
   }
 
   ngOnInit() {

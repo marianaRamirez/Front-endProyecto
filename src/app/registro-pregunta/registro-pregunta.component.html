@@ -4,11 +4,11 @@
 		<label for="exampleSelect1">Curso:</label>
 		<div class="dropdown">
 			<button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-			{{selectedCurso}}
+			{{selectedCurso.descripcion}}
 			<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso}}</a></li>
+				<li *ngFor='let curso of cursos' (click)="selectedCurso=curso	"><a>{{curso.descripcion}}</a></li>
 			</ul>
 		</div>
 	  </div>
@@ -16,11 +16,11 @@
 			<label for="exampleSelect1">Tema:</label>
 			<div class="dropdown">
 	 		 <button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-	 		 {{selectedTema}}
+	 		 {{selectedTema.descripcion}}
 	 		 <span class="caret"></span>
 	 		 </button>
 	 		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-	 			 <li *ngFor='let tema of temas' (click)="selectedTema=tema	"><a>{{tema}}</a></li>
+	 			 <li *ngFor='let tema of temas' (click)="selectedTema=tema	"><a>{{tema.descripcion}}</a></li>
 	 		 </ul>
 	 	 </div>
 		  </div>
@@ -28,35 +28,68 @@
 			<label for="exampleSelect1">Subtema:</label>
 			<div class="dropdown">
 	 		 <button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-	 		 {{selectedSubtema}}
+	 		 {{selectedSubtema.descripcion}}
 	 		 <span class="caret"></span>
 	 		 </button>
 	 		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-	 			 <li *ngFor='let subtema of subtemas' (click)="selectedSubtema=subtema	"><a>{{subtema}}</a></li>
+	 			 <li *ngFor='let subtema of subtemas' (click)="selectedSubtema=subtema	"><a>{{subtema.descripcion}}</a></li>
 	 		 </ul>
 	 	 </div>
 		  </div>
 	  <fieldset class="form-group">
 		<legend>Tipo de Pregunta</legend>
-		<div class="form-check">
+		<div class="form-check" *ngFor="let tipo of tiposPregunta; let idx = index">
 		  <label class="form-check-label">
-		    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-		    Marque con equis (Selección única)
-		  </label>
-		</div>
-		<div class="form-check">
-		<label class="form-check-label">
-		    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-		    Completar el espacio en blanco
-		  </label>
-		</div>
-		<div class="form-check">
-		<label class="form-check-label">
-		    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
-		    Desarrollo
+				<input type="radio" name="radiogroup"
+            [checked]="idx === 0"
+            [value]="tipo.tipo"
+            (change)="onChangeTipoPregunta(tipo)"> {{ tipo.descripcion }}
 		  </label>
 		</div>
 	  </fieldset>
-	  <button type="submit" class="btn btn-primary">Siguiente</button>
+	  <button type="button" class="btn btn-primary" (click)="mostrarCuadroPregunta()">Siguiente</button>
+		<div class="form-group row" [hidden]="esMarqueX">
+		  <label for="example-id-input" class="col-2 col-form-label">Pregunta:</label>
+		  <div class="col-10">
+		    <input class="form-control" type="id" id="example-id-input">
+		  </div>
+			<label for="example-id-input" class="col-2 col-form-label">Opción 1:</label>
+		  <div class="col-10">
+		    <input class="form-control" type="id" id="example-id-input">
+		  </div>
+			<label for="example-id-input" class="col-2 col-form-label">Opción 2:</label>
+		  <div class="col-10">
+		    <input class="form-control" type="id" id="example-id-input">
+		  </div>
+			<label for="example-id-input" class="col-2 col-form-label">Opción 3:</label>
+		  <div class="col-10">
+		    <input class="form-control" type="id" id="example-id-input">
+		  </div>
+			<label for="example-id-input" class="col-2 col-form-label">Opción 4:</label>
+		  <div class="col-10">
+		    <input class="form-control" type="id" id="example-id-input">
+		  </div>
+
+			<label class="mr-sm-2" for="inlineFormCustomSelect">Respuesta correcta:</label>
+			<div class="dropdown">
+	 		 <button ngChange class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	 		 {{selectedRespuesta.descripcion}}
+	 		 <span class="caret"></span>
+	 		 </button>
+	 		 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	 			 <li *ngFor='let respuesta of respuestas' (click)="selectedRespuesta=respuesta	"><a>{{respuesta.descripcion}}</a></li>
+	 		 </ul>
+	 	 </div>
+	 	</div>
+			<div class="form-group row" [hidden]="esComplete">
+			  <label for="example-id-input" class="col-2 col-form-label">Pregunta:</label>
+			  <div class="col-10">
+			    <input class="form-control" type="id" id="example-id-input">
+			  </div>
+				<label for="example-id-input" class="col-2 col-form-label">Respuesta correcta:</label>
+			  <div class="col-10">
+			    <input class="form-control" type="id" id="example-id-input">
+			  </div>
+			</div>
 	</form>
 </div>
